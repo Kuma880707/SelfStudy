@@ -7,10 +7,11 @@ using System.Collections.Generic;
 
 public class CreatAltas : Editor
 {
-    static Object textrue;
+    
     [MenuItem("Assets/CreatAltas")]
     static void ChangeImageAddAltas()
     {
+        Object textrue;
         List<Object> obj = new List<Object>();
         SpriteAtlas atlas = new SpriteAtlas();
 
@@ -34,7 +35,7 @@ public class CreatAltas : Editor
         var select = Selection.activeObject;
         var path = AssetDatabase.GetAssetPath(select);
         string Atlasname = select.name + ".spriteatlas";
-        string Atlaspath = "Assets/Dk_Project/Atlas/" + Atlasname;
+        string Atlaspath = "Assets/Dk_Project/Art/Atlas/" + Atlasname;
         DirectoryInfo direction = new DirectoryInfo(path);
         FileInfo[] files = direction.GetFiles("*", SearchOption.AllDirectories);           
         AssetDatabase.CreateAsset(atlas, Atlaspath);

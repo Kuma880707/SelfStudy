@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class BgNav : MonoBehaviour
 {
-   //[HideInInspector]
+    [HideInInspector]
     public Vector2 Pos;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject pos;
-    //[HideInInspector]
+    [HideInInspector]
     public float locktime;
-    //[HideInInspector]
+    [HideInInspector]
     Ray ray;
-    //[HideInInspector]
+    [HideInInspector]
     RaycastHit hit;
+    [HideInInspector]
+    public float GraphicsLerp;
+
 
     public void GetInputPos()
     {        
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);      
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition/GraphicsLerp);      
         if (Physics.Raycast(ray, out hit))
         {
             pos.transform.position = hit.point;
-            Pos = pos.transform.position;      
+            Pos = pos.transform.position;
         }
     }
 }
