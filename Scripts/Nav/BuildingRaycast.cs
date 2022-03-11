@@ -31,7 +31,7 @@ public class BuildingRaycast :MonoBehaviour
     {
         if(!rayOff)
         {
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition / 2);
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition / GameMgr.Instance.graphicsSet);
             if (Physics.Raycast(ray, out hit, 10000, laymask) && Input.GetMouseButtonDown(0))
             {
                 GetInBuildingScene();
